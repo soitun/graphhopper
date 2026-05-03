@@ -68,6 +68,10 @@ class BikeAccessAndRoadAccessTest {
                 // bike_road_access=NO via implied default.
                 Arguments.of("motorway",     "",                                                                false, BikeRoadAccess.NO),
 
+                // corridor isn't in BikeCommonAccessParser.allowedHighways → bike_access=false.
+                // Implied bicycle=no (not "dismount") so bike_road_access stays consistent with that.
+                Arguments.of("corridor",     "",                                                                false, BikeRoadAccess.NO),
+
                 // Generic vehicle/access tags. bike_access only checks "bicycle" and "access",
                 // not "vehicle" — so vehicle=no leaves bike_access=true while bike_road_access=NO
                 // (its restriction list is bicycle/vehicle/access). Same kind of mismatch as

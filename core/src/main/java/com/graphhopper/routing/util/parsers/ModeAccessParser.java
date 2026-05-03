@@ -40,7 +40,10 @@ public class ModeAccessParser implements TagParser {
         m.put("construction", Map.of("access", "no"));
         m.put("proposed", Map.of("access", "no"));
         m.put("raceway", Map.of("access", "no"));
-        m.put("corridor", Map.of("motor_vehicle", "no", "bicycle", "dismount", "foot", "yes"));
+        // corridor stays bicycle=no (not "dismount") because BikeCommonAccessParser doesn't list
+        // it in allowedHighways — bike_access is already false there. Marking road_access as
+        // DISMOUNT would suggest "can push" while access says "can't use it at all".
+        m.put("corridor", Map.of("motor_vehicle", "no", "bicycle", "no", "foot", "yes"));
         m.put("platform", Map.of("motor_vehicle", "no", "bicycle", "dismount", "foot", "yes"));
         HIGHWAY_TYPE_DEFAULTS = Map.copyOf(m);
 
