@@ -48,7 +48,7 @@ class BikeAccessAndRoadAccessTest {
                 // Highway types with implied bicycle defaults from the OSM wiki.
                 Arguments.of("cycleway",     "",                                                                true,  BikeRoadAccess.DESIGNATED),
                 Arguments.of("path",         "",                                                                true,  BikeRoadAccess.YES),
-                Arguments.of("bridleway",    "",                                                                true,  BikeRoadAccess.NO),
+                Arguments.of("bridleway",    "",                                                                true,  BikeRoadAccess.YES),
 
                 // Pedestrian/footway: implied default is bicycle=dismount (you can push the
                 // bike). bike_access stays true and bike_road_access becomes DISMOUNT — the

@@ -26,9 +26,8 @@ public class ModeAccessParser implements TagParser {
         // pushing a bike is physically reasonable (pedestrian streets, footways, stairs, indoor
         // corridors, station platforms). Our routing layer treats DISMOUNT as "can push" —
         // usable but qualified — whereas NO is treated as a hard block. motorway/motorway_link
-        // keep "no" because bikes are legally prohibited even on foot; bridleway likewise stays
-        // "no" by convention. Explicit bicycle=no tags on a way still resolve to NO; only the
-        // implicit highway-type defaults become DISMOUNT.
+        // keep "no" because bikes are legally prohibited even on foot. Explicit bicycle=no tags
+        // on a way still resolve to NO; only the implicit highway-type defaults become DISMOUNT.
         m.put("motorway", Map.of("motor_vehicle", "designated", "foot", "no", "bicycle", "no"));
         m.put("motorway_link", Map.of("motor_vehicle", "designated", "foot", "no", "bicycle", "no"));
         m.put("steps", Map.of("motor_vehicle", "no", "bicycle", "dismount", "foot", "designated"));
@@ -36,7 +35,7 @@ public class ModeAccessParser implements TagParser {
         m.put("cycleway", Map.of("motor_vehicle", "no", "bicycle", "designated", "foot", "no"));
         m.put("pedestrian", Map.of("motor_vehicle", "no", "bicycle", "dismount", "foot", "designated"));
         m.put("path", Map.of("motor_vehicle", "no", "foot", "yes", "bicycle", "yes"));
-        m.put("bridleway", Map.of("motor_vehicle", "no", "foot", "yes", "bicycle", "no"));
+        m.put("bridleway", Map.of("motor_vehicle", "no", "foot", "yes", "bicycle", "yes"));
         m.put("busway", Map.of("access", "no", "bus", "designated"));
         m.put("construction", Map.of("access", "no"));
         m.put("proposed", Map.of("access", "no"));
